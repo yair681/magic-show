@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>בחר תמונה</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>בחר תמונה</h1>
+    <div class="images">
+        <img src="img1.jpg" onclick="choose('img1.jpg')">
+        <img src="img2.jpg" onclick="choose('img2.jpg')">
+        <img src="img3.jpg" onclick="choose('img3.jpg')">
+        <img src="img4.jpg" onclick="choose('img4.jpg')">
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function choose(image) {
+            socket.emit("chooseImage", image);
+            document.body.innerHTML = "<h2>תודה שבחרת!</h2>";
+        }
+    </script>
+</body>
+</html>

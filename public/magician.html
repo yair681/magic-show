@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>ממשק קוסם</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ממשק קוסם</h1>
+    <h2 id="result">ממתין לבחירה...</h2>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on("imageChosen", (image) => {
+            document.getElementById("result").innerHTML =
+                `המשתתף בחר: <img src="${image}" style="width:120px">`;
+        });
+    </script>
+</body>
+</html>
